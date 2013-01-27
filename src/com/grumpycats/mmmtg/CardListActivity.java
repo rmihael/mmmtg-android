@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.Menu;
+import com.grumpycats.mmmtg.io.model.Card;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,12 +25,12 @@ public class CardListActivity extends Activity {
         System.out.println(d);
         Card c = Card.create("hello", "world", d, 3, 4);
         System.out.println(c);
-        try{
-            c = Card.valueOf(new JSONObject("{id:1,name:'Force of Will',block:Revised,prices:{}}"));
-            System.out.println(c);
-        } catch (JSONException e){
-            Log.e(TAG, "JSON exception", e);
-        }
+//        try{
+//            c = Card.valueOf(new JSONObject("{id:1,name:'Force of Will',block:Revised,prices:{}}"));
+//            System.out.println(c);
+//        } catch (JSONException e){
+//            Log.e(TAG, "JSON exception", e);
+//        }
     }
 
     @Override
