@@ -16,8 +16,9 @@ import java.util.*;
  * Time: 2:50 AM
  * To change this template use File | Settings | File Templates.
  */
-public class CardsHandler {
+public class CardsHandler extends JSONHandler{
     private static final String TAG = CardsHandler.class.getSimpleName() ;
+
 
     public List<Card> parse (JSONObject json) throws JSONException {
         JSONArray cardsJSON = !json.isNull("cards") ? json.getJSONArray("cards") : null;
