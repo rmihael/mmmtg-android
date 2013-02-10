@@ -10,7 +10,7 @@ package com.grumpycats.mmmtg.util;
 public class Config {
     public static final String APP_NAME = "mmmtg";
 
-    private static final String BASE_URL = "http://localhost:9000";
+    private static final String BASE_URL = "http://192.168.1.107:9000";
     public static final String GET_CARDS      = BASE_URL + "/cards";
     public static final int HTTP_REQUEST_TIMEOUT_MS = 30 * 1000;
 }

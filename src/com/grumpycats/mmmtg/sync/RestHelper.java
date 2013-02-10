@@ -1,8 +1,10 @@
 package com.grumpycats.mmmtg.sync;
 
 import android.util.Log;
+import com.grumpycats.mmmtg.io.CardsHandler;
 import com.grumpycats.mmmtg.io.HandlerException;
 import com.grumpycats.mmmtg.io.JSONHandler;
+import com.grumpycats.mmmtg.io.model.Card;
 import com.grumpycats.mmmtg.util.Config;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -17,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,8 +40,16 @@ public class RestHelper {
         return httpClient;
     }
 
-    public void syncCards(){
-
+    public static void getCards(){
+        JSONHandler cardHandler = new CardsHandler();
+        try{
+            List<Card> cards = cardHandler.parse(executeGet(Config.GET_CARDS));
+            Log.i(TAG, cards.toString());
+        } catch (IOException e) {
+            Log.e(TAG, "getCards(): Getting cards from server fails", e);
+        } catch (JSONException e) {
+            Log.e(TAG, "getCards(): Parsing card's data from server fails",e);
+        }
 
     }
 
